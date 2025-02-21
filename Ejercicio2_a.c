@@ -13,4 +13,3 @@ int main() {
     printf("Tiempo transcurrido: %f segundos\n", elapsed_time);
     return 0;
 }
-
