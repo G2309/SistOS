@@ -1,0 +1,21 @@
+#!/bin/bash
+
+# bash script para correr las 2 instacias (era mas sencillo)
+
+# Compilar ipc.c si no está compilado
+if [ ! -f ipc ]; then
+    gcc ipc.c -o a.out -lrt
+fi
+
+# Luego le paso los atributos a cada una de las 2 instancias
+./a.out 10 A &
+pid1=$!
+
+./a.out 15 B &
+pid2=$!
+
+wait $pid1
+wait $pid2
+
+echo "Ejecución finalizada."
+
